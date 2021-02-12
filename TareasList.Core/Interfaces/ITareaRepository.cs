@@ -8,6 +8,6 @@ namespace TareasList.Core.Interfaces
 {
     public interface ITareaRepository
     {
-        Task<IEnumerable<Tareas>> GetTareas();
+        Task<IEnumerable<Tarea>> GetTareas();
     }
 }

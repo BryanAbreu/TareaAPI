@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TareasList.Core.Interfaces;
-using TareasList.Infrastructure.Repositories;
+using TareasList.Core.Repositories;
 
 namespace TareasList.Api.Controllers
 {

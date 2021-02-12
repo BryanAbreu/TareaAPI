@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -11,7 +12,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TareasList.Core.Interfaces;
-using TareasList.Infrastructure.Repositories;
+using TareasList.Core.Repositories;
+using TareasList.Infrastructure.Data;
 
 namespace TareasList.Api
 {
@@ -28,8 +30,10 @@ namespace TareasList.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<TareaListContext>(option =>
+             option.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            services.AddTransient<ITareaRepository, TareaDataRepository>();
+            services.AddTransient<ITareaRepository, TareaRespository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

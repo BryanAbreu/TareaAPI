@@ -1,28 +1,27 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TareasList.Core.Entities;
 using TareasList.Core.Interfaces;
+using TareasList.Infrastructure.Data;
 
-namespace TareasList.Infrastructure.Repositories
+namespace TareasList.Core.Repositories
 {
    public class TareaRespository : ITareaRepository
     {
-        public async Task<IEnumerable<Tareas>> GetTareas()
-        {
-            var tareas = Enumerable.Range(1, 10).Select(x => new Tareas
-            {
-                TareaId = x,
-                Descripcion = $"Description {x}",
-                Titulo= $"Title{x}",
-                Estado=$"Status {x}",
-                UserId= x * 2
+        private readonly TareaListContext _context;
 
-            });
-            await Task.Delay(10);
-            return tareas;
+            public TareaRespository (TareaListContext context)
+            {
+            _context = context;
+            }
+        public async Task<IEnumerable<Tarea>> GetTareas()
+        {
+            var List = await _context.Tareas.ToListAsync();
+            return List;
         }
 
         
