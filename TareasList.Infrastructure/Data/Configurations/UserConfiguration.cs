@@ -15,7 +15,8 @@ namespace TareasList.Infrastructure.Data.Configurations
 
             builder.ToTable("User");
 
-            builder.Property(e => e.Apellido)
+            builder.Property(e => e.LastName)
+                .HasColumnName("Apellido")
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -25,12 +26,14 @@ namespace TareasList.Infrastructure.Data.Configurations
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            builder.Property(e => e.Nombre)
+            builder.Property(e => e.Name)
+                .HasColumnName("Nombre")
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
 
-            builder.Property(e => e.NombreUsuario)
+            builder.Property(e => e.UserName)
+                .HasColumnName("NombreUsuario")
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);

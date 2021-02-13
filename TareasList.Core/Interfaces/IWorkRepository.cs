@@ -6,8 +6,12 @@ using TareasList.Core.Entities;
 
 namespace TareasList.Core.Interfaces
 {
-    public interface ITareaRepository
+    public interface IWorkRepository
     {
-        Task<IEnumerable<Tarea>> GetTareas();
+        Task<IEnumerable<Work>> GetWorks();
+
+        Task<Work> GetWork(int id);
+
+        Task InsertWork(Work work);
     }
-}
+} 

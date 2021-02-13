@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Filters\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.12">
       <PrivateAssets>all</PrivateAssets>
