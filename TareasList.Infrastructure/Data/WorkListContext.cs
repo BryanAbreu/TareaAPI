@@ -1,8 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 using TareasList.Core.Entities;
-using TareasList.Infrastructure.Data.Configurations;
 
 namespace TareasList.Infrastructure.Data
 {

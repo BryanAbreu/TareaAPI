@@ -1,6 +1,4 @@
-﻿using TareasList.Core.Enumerations;
-
-namespace TareasList.Core.Entities
+﻿namespace TareasList.Core.Entities
 {
     public partial class Work
     {

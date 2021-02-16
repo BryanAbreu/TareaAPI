@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
 using TareasList.Core.Entities;
-using TareasList.Core.Enumerations;
 
 namespace TareasList.Infrastructure.Data.Configurations
 {

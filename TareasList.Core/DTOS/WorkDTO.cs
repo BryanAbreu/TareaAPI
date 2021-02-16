@@ -1,8 +1,6 @@
-﻿using TareasList.Core.Enumerations;
-
-namespace TareasList.Core.DTOS
+﻿namespace TareasList.Core.DTOS
 {
-   public class WorkDTO
+    public class WorkDTO
     {
         public int WorkID { get; set; }
         public int UserId { get; set; }

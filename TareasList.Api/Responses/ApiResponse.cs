@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace TareasList.Api.Responses
+﻿namespace TareasList.Api.Responses
 {
     public class ApiResponse<T>
     {
