@@ -41,7 +41,11 @@ namespace TareasList.Api.Controllers
             var response = new ApiResponse<WorkDTO>(workDTO);
             return Ok(response);
         }
-
+        /// <summary>
+        /// Retrive all posts
+        /// </summary>
+        /// <param name="workDTO">DTO</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Post(WorkDTO workDTO)
         {
