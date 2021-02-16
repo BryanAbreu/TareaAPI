@@ -1,17 +1,16 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using TareasList.Core.Interfaces;
-using TareasList.Infrastructure.Repositories;
+using TareasList.Core.Services;
+using TareasList.Infrastructure.Data;
+using TareasList.Infrastructure.Filters;
+using WorksList.Core.Repositories;
 
 namespace TareasList.Api
 {
@@ -27,9 +26,27 @@ namespace TareasList.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            
+            services.AddControllers().AddNewtonsoftJson(option=> 
+            {
+                option.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
+            services.AddDbContext<WorkListContext>(option =>
+             option.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            services.AddTransient<ITareaRepository, TareaDataRepository>();
+            services.AddTransient<IWorkService, WorkService>();
+            services.AddTransient<IWorkRepository, WorkRepository>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<ValidationFilter>();
+            })
+            .AddFluentValidation(options =>
+            {
+              options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
