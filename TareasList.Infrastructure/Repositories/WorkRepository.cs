@@ -42,7 +42,7 @@ namespace WorksList.Core.Repositories
             Currenrtwork.Status = work.Status;
 
             int rows=  await _context.SaveChangesAsync();
-            return rows > 0;
+            return rows > 0; 
 
         }
 
