@@ -1,6 +1,8 @@
-﻿namespace TareasList.Core.Entities
+﻿
+
+namespace TareasList.Core.Entities
 {
-    public partial class Work
+    public partial class Work 
     {
         public int WorkID { get; set; }
         public int UserId { get; set; }

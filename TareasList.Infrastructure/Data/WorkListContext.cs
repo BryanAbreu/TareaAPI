@@ -16,7 +16,7 @@ namespace TareasList.Infrastructure.Data
 
         public virtual DbSet<Work> Works { get; set; }
         public virtual DbSet<User> Users { get; set; }
-
+        
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
