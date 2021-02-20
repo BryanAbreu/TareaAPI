@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using TareasList.Core.Entities;
+using TareasList.Core.Interfaces;
 
 namespace TareasList.Api.Controllers
 {
@@ -18,26 +19,30 @@ namespace TareasList.Api.Controllers
     public class TokenController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public TokenController(IConfiguration configuration)
+        private readonly ILoginService _loginService;
+        public TokenController(IConfiguration configuration, ILoginService loginService)
         {
             _configuration = configuration;
+            _loginService = loginService;
         }
         [HttpPost]
-        public IActionResult Authentication(UserLogin login)
+        public async Task<IActionResult> Authentication(UserLogin login)
         {
-            //if it a valid User
-            if (IsValidUser(login))
+            var validation = await IsValidUser(login);
+            //if user is valid
+            if (validation.Item1)
             {
-                var token = GenerateToken();
+                var token = GenerateToken(validation.Item2);
                 return Ok(new { token });
             }
             return NotFound();
         }
-        private bool IsValidUser(UserLogin login)
+        private async Task<(bool, User)> IsValidUser(UserLogin login)
         {
-            return true;
+            var user = await _loginService.GetLoginByCredentials(login);
+            return (true, user);
         }
-        private string GenerateToken()
+        private string GenerateToken(User user)
         {
             //Header
             var _SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Authentication:SecretKey"]));
@@ -49,8 +54,7 @@ namespace TareasList.Api.Controllers
             //Claims
             var Claims = new[]
             {
-            new Claim(ClaimTypes.Name, "Bryan Abreu"),
-            new Claim(ClaimTypes.Email, "batabreu13@gmail.com")
+            new Claim(ClaimTypes.Name, user.Name)
             };
 
             //payload

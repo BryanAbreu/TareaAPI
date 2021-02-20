@@ -49,9 +49,10 @@ namespace TareasList.Api.Controllers
         /// <param name="workDTO">DTO</param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> Post(WorkDTO workDTO)
+        public async Task<IActionResult> Post(  WorkDTO workDTO , UserLogin userLogin )
         {
             var work = _mapper.Map<Work>(workDTO);
+          
 
             await _workService.InsertWork(work);
           

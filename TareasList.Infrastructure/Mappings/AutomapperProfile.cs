@@ -9,6 +9,8 @@ namespace TareasList.Infrastructure.Mappings
         public AutomapperProfile()
         {
             CreateMap<Work, WorkDTO>().ReverseMap();
+            CreateMap<User, UserDTO>().ReverseMap();
+
         }
     }
 }

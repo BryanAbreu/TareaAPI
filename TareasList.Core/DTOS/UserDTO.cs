@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TareasList.Core.DTOS
 {
-    class UserDTO
+    public class UserDTO
     {
         public int IdUser { get; set; }
         public string Name { get; set; }

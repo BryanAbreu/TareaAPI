@@ -14,6 +14,7 @@ using TareasList.Core.Interfaces;
 using TareasList.Core.Services;
 using TareasList.Infrastructure.Data;
 using TareasList.Infrastructure.Filters;
+using TareasList.Infrastructure.Repositories;
 using WorksList.Core.Repositories;
 
 namespace TareasList.Api
@@ -44,6 +45,10 @@ namespace TareasList.Api
 
             services.AddTransient<IWorkService, WorkService>();
             services.AddTransient<IWorkRepository, WorkRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ILoginRepository, LoginRepository>();
+            services.AddTransient<ILoginService, LoginService>();
+
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddAuthentication(option =>
