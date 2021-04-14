@@ -6,6 +6,9 @@
 
   <ItemGroup>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> f0694bffa52d050b0edc9f338752aa7abac3884b
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="FluentValidation" Version="9.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
@@ -20,6 +23,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+<<<<<<< HEAD
+=======
 =======
     <Folder Include="Filters\" />
 >>>>>>> 53a6e40fe9b30f21ff077e85c964abec29e460a2
@@ -36,6 +41,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+>>>>>>> f0694bffa52d050b0edc9f338752aa7abac3884b
   </ItemGroup>
 
   <ItemGroup>

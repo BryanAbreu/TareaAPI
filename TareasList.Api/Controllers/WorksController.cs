@@ -1,4 +1,8 @@
 ﻿using AutoMapper;
+<<<<<<< HEAD
+using Microsoft.AspNetCore.Authorization;
+=======
+>>>>>>> f0694bffa52d050b0edc9f338752aa7abac3884b
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -9,6 +13,10 @@ using TareasList.Core.Interfaces;
 
 namespace TareasList.Api.Controllers
 {
+<<<<<<< HEAD
+    [Authorize]
+=======
+>>>>>>> f0694bffa52d050b0edc9f338752aa7abac3884b
     [Route("api/[controller]")]
     [ApiController]
     public class WorksController : ControllerBase
@@ -41,11 +49,24 @@ namespace TareasList.Api.Controllers
             var response = new ApiResponse<WorkDTO>(workDTO);
             return Ok(response);
         }
+<<<<<<< HEAD
+        /// <summary>
+        /// Retrive all posts
+        /// </summary>
+        /// <param name="workDTO">DTO</param>
+        /// <returns></returns>
+        [HttpPost]
+        public async Task<IActionResult> Post(  WorkDTO workDTO , UserLogin userLogin )
+        {
+            var work = _mapper.Map<Work>(workDTO);
+          
+=======
 
         [HttpPost]
         public async Task<IActionResult> Post(WorkDTO workDTO)
         {
             var work = _mapper.Map<Work>(workDTO);
+>>>>>>> f0694bffa52d050b0edc9f338752aa7abac3884b
 
             await _workService.InsertWork(work);
           
